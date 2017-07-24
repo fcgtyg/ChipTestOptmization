@@ -12,8 +12,7 @@ def start():
     while True:
         print "Listening for client . . ."
         conn, address = server_socket.accept()
-        print "Connected to client at", address
-        #pick a large output buffer size because i dont necessarily know how big the incoming packet is
+        print "Connected to streaming client at", address, "\n"
         while True:
             try:
                 output = str(randint(1, 10))+"\n"
