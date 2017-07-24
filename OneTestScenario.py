@@ -20,19 +20,19 @@ def SparkApp(model=None, Context=None, streamingContext=None):
 
     streamingContext.checkpoint("C:/SparkCheckpoints/")
 
-    nums = streamingContext.socketTextStream("localhost", 12345).repartition(2) # stream data from TCP; source, port
+    nums = streamingContext.socketTextStream("localhost", 12345) # stream data from TCP; source, port
 
-    tests = nums.flatMap(reduceMap).reduceByKeyAndWindow(lambda x,y: x+y, lambda x,y: x-y, 25, 5)
-
-    tests.pprint(10)
+    tests = nums.flatMap(reduceMap)\
+        .reduceByKeyAndWindow(lambda x,y: x+y, lambda x,y: x-y, 25, 5)
 
     if model is not None:
         predict(model, tests)
+    tests.pprint(10)
 
-    #model.predictOnValues(tests.map(lambda x: (x.label, x.feature)))
     streamingContext.start()
     streamingContext.awaitTermination()
 
 def predict(model, dstream):
-    model.predictOnValues(dstream.map(lambda x: LabeledPoint(x[0], Vectors.dense([x[1], 0, 0]))))
-    dstream.pprint(10)
+    model.predictOnValues(
+        dstream.map(lambda x: (x[0], Vectors.dense([x[1]])))
+    ).pprint()
