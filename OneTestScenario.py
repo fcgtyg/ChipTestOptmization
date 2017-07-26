@@ -18,6 +18,8 @@ def SparkApp(model=None, Context=None, streamingContext=None):
     if streamingContext is None:
         streamingContext = StreamingContext(Context, 5) # sc, time interval for batch update.
 
+    model.setInitialWeights([0])
+
     streamingContext.checkpoint("C:/SparkCheckpoints/")
 
     nums = streamingContext.socketTextStream("localhost", 12345) # stream data from TCP; source, port
@@ -26,13 +28,13 @@ def SparkApp(model=None, Context=None, streamingContext=None):
         .reduceByKeyAndWindow(lambda x,y: x+y, lambda x,y: x-y, 25, 5)
 
     if model is not None:
-        predict(model, tests)
+        train(model, tests)
     tests.pprint(10)
 
     streamingContext.start()
     streamingContext.awaitTermination()
 
-def predict(model, dstream):
-    model.predictOnValues(
-        dstream.map(lambda x: (x[0], Vectors.dense([x[1]])))
-    ).pprint()
+def train(model, dstream):
+    model.trainOn(
+        dstream.map(lambda x: LabeledPoint(x[0], Vectors.dense([x[1]]))))
+    dstream.map(lambda x: model.latestModel()).pprint(1)

@@ -5,7 +5,7 @@ from pyspark.mllib.regression import StreamingLinearRegressionWithSGD
 
 sc = SparkContext("local[5]", "Tester")
 sc.setLogLevel("OFF")
-model = StreamingLinearRegressionWithSGD()
+model = StreamingLinearRegressionWithSGD(stepSize=0.01)
 
 
 class SparkThread(threading.Thread):
@@ -15,10 +15,12 @@ class SparkThread(threading.Thread):
         pass
 
     def run(self):
+        """
         from OneTestTrainer import train
         ssc = StreamingContext(sc, 5)
         train(model=model, Context=sc, streamingContext=ssc)
         ssc.stop(stopSparkContext=False)
+        """
         ssc = StreamingContext(sc, 5)
         from OneTestScenario import SparkApp
         SparkApp(model=model, Context=sc, streamingContext=ssc)
@@ -36,6 +38,7 @@ class ServerThread(threading.Thread):
         print "\nServer thread stopped.\n"
 
 
+# NOT USED IN THIS COMMIT.
 class TrainingServer(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
@@ -47,9 +50,9 @@ class TrainingServer(threading.Thread):
 
 threadSpark = SparkThread()
 threadServer = ServerThread()
-threadTrainer = TrainingServer()
+#threadTrainer = TrainingServer()
 
 threadServer.start()
-threadTrainer.start()
+#threadTrainer.start()
 threadSpark.start()
 
