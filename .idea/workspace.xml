@@ -390,7 +390,14 @@
       <option name="project" value="LOCAL" />
       <updated>1501031885378</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="OneTestTrainer cancelled.&#10;OneTestScenario-WithServer.py working but outputs may be false.&#10;OneTestTrainer.py is not used. in this commit&#10;Model initialization is done in OneTestScenario.py.&#10;Only training on the DStream at localhost:12345, no prediction as case wanted to.">
+      <created>1501031898268</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1501031898268</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
