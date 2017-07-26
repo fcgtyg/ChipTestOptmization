@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="57c0cf0d-3a0d-4d7b-ac01-82bea37d775f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OneTestScenario-WithServer.py" afterPath="$PROJECT_DIR$/OneTestScenario-WithServer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OneTestScenario.py" afterPath="$PROJECT_DIR$/OneTestScenario.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -385,7 +383,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500933188870</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="OneTestTrainer cancelled.&#10;OneTestScenario-WithServer.py working but outputs may be false.&#10;OneTestTrainer.py is not used. in this commit&#10;Model initialization is done in OneTestScenario.py.&#10;Only training on the DStream at localhost:12345, no prediction as case wanted to.">
+      <created>1501031885378</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1501031885378</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -431,7 +436,8 @@
     </ignored-roots>
     <MESSAGE value="Regression algorithm added.&#10;OneTestScenario-WithServer.py not working as expected.&#10;OneTestScenario.py abstracted.&#10;OneTestTrainer.py added which is planned to be used to train model.&#10;RandomNumberTrainer.py added which is planned to provide training data." />
     <MESSAGE value="Regression algorithm fixed.&#10;OneTestScenario-WithServer.py working but outputs may be false.&#10;SparkContext and Streaming context assigned at OneTestScenario-WithServer.py&#10;OneTestTrainer.py trains model.&#10;RandomNumberTrainer.py provides training data." />
-    <option name="LAST_COMMIT_MESSAGE" value="Regression algorithm fixed.&#10;OneTestScenario-WithServer.py working but outputs may be false.&#10;SparkContext and Streaming context assigned at OneTestScenario-WithServer.py&#10;OneTestTrainer.py trains model.&#10;RandomNumberTrainer.py provides training data." />
+    <MESSAGE value="OneTestTrainer cancelled.&#10;OneTestScenario-WithServer.py working but outputs may be false.&#10;OneTestTrainer.py is not used. in this commit&#10;Model initialization is done in OneTestScenario.py.&#10;Only training on the DStream at localhost:12345, no prediction as case wanted to." />
+    <option name="LAST_COMMIT_MESSAGE" value="OneTestTrainer cancelled.&#10;OneTestScenario-WithServer.py working but outputs may be false.&#10;OneTestTrainer.py is not used. in this commit&#10;Model initialization is done in OneTestScenario.py.&#10;Only training on the DStream at localhost:12345, no prediction as case wanted to." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
