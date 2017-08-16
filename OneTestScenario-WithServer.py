@@ -1,10 +1,11 @@
 import threading, time
-from pyspark import SparkContext
+from pyspark import SparkContext, SparkConf
 from pyspark.streaming import StreamingContext
 from pyspark.mllib.regression import StreamingLinearRegressionWithSGD
 
 sc = SparkContext("local[5]", "Tester")
 sc.setLogLevel("OFF")
+conf = SparkConf()
 model = StreamingLinearRegressionWithSGD(stepSize=0.01)
 
 
